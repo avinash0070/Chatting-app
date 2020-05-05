@@ -1,4 +1,3 @@
-// const app = require('./backend/app.js');
 const http = require('http');
 const express = require('express');
 const path = require('path');
@@ -25,9 +24,9 @@ io.on('connection',(socket)=>{
            console.log ('io is connected');
           // for socket on
           socket.on('join',(data)=>{
-                  socket.join(data.room);
+                  socket.join(data.room); 
                     console.log(data.user+' join room'+data.room);
-                  //  TO Brodcast all the user whic room is connected
+                  //  TO Brodcast all the user which is connected to the room
                       socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:'has joined this room.'});
                                })
           socket.on('leave', (data)=>{
@@ -36,7 +35,7 @@ io.on('connection',(socket)=>{
                      socket.broadcast.to(data.room).emit('left room', {user:data.user, message:'has left this room.'});
                       socket.leave(data.room);
                               });
-          socket.on('message',function(data){
+          socket.on('message',(data)=>{
                         io.in(data.room).emit('new message', {user:data.user, message:data.message});
                         console.log(data)
                               })
