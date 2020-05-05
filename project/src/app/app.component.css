@@ -1,0 +1,20 @@
+.scroll { 
+    margin:4px, 4px; 
+    padding:4px;   
+    height: 200px; 
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    text-align:justify; 
+    width: 97%;
+    margin-left: 15px;
+} 
+.x
+{
+    margin: 7px;
+    width: 64px;
+    margin-top: 11px;
+}
+.y{
+    margin-right: -15px;
+    width: 157px;
+}
