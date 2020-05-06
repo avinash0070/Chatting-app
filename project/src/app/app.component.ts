@@ -12,7 +12,6 @@ export class AppComponent {
     user:String;
     room:String;
     messageText:String;
-    roomv:string = "choose the room"
     messageArray:Array<{user:String,message:String}> = [];
     constructor(private _chatService:ChatService){
         this._chatService.newUserJoined()

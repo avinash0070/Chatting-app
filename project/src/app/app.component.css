@@ -1,7 +1,7 @@
 .scroll { 
     margin:4px, 4px; 
     padding:4px;   
-    height: 200px; 
+    height: 400px; 
     overflow-x: hidden; 
     overflow-x: auto; 
     text-align:justify; 
@@ -17,4 +17,10 @@
 .y{
     margin-right: -15px;
     width: 157px;
+}
+
+.fnt
+{
+    font-family: "Times New Roman", Times, serif;
+
 }
