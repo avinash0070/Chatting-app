@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
+    user:string;
+    room:string;
 
   private socket = io('http://localhost:3000');
 
@@ -19,8 +21,9 @@ export class ChatService {
             this.socket.on('new user joined', (data)=>{
                 observer.next(data);
             });
-            return () => {this.socket.disconnect();}
-        });
+           return () => {this.socket.disconnect();}
+        }
+        );
 
         return observable;
     }
