@@ -9,8 +9,8 @@ import { ChatService } from '../chat.service';
 export class ChatComponent implements OnInit {
   user:String;
   isvalid :boolean = true;
-    room:String;
-    messageText:String;
+    room:String = "Lobby";
+    messageText:String ;
     messageArray:Array<{user:String,message:String}> = [];
     constructor(private _chatService:ChatService){
         this._chatService.newUserJoined()
@@ -31,11 +31,15 @@ export class ChatComponent implements OnInit {
 
     leave(){
         this._chatService.leaveRoom({user:this.user, room:this.room});
+        this.isvalid = true;
+        this.user=" ";
+        this.room= " ";
     }
 
     sendMessage()
     {
         this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
+        this.messageText= " ";
     }
     
  

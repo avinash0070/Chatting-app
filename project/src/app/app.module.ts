@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ChatService } from './chat.service';
 import { ChatComponent } from './chat/chat.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    NavComponent
   ],
   imports: [
   BrowserModule,
