@@ -6,12 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
+    user:Array<{user:String}> = []
 
   private socket = io('http://localhost:3000');
 
     joinRoom(data)
     {
         this.socket.emit('join',data);
+        this.user.push(data.user);
     }
     newUserJoined()
     {
@@ -19,8 +21,9 @@ export class ChatService {
             this.socket.on('new user joined', (data)=>{
                 observer.next(data);
             });
-            return () => {this.socket.disconnect();}
-        });
+           return () => {this.socket.disconnect();}
+        }
+        );
 
         return observable;
     }

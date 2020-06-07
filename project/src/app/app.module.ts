@@ -5,14 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatService } from './chat.service';
 import { ChatComponent } from './chat/chat.component';
-import { RoomComponent } from './room/room.component';
 import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent,
-    RoomComponent
+    ChatComponent
   ],
   imports: [
   BrowserModule,
