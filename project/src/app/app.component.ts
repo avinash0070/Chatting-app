@@ -2,19 +2,17 @@ import { Component } from '@angular/core';
 import {ChatService} from './chat.service';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     providers:[ChatService]
 })
 export class AppComponent {
-    title(title: any) {
-      throw new Error("Method not implemented.");
-    }
 
     user:String;
     room:String;
     messageText:String;
+    roomv:string = "choose the room"
     messageArray:Array<{user:String,message:String}> = [];
     constructor(private _chatService:ChatService){
         this._chatService.newUserJoined()
