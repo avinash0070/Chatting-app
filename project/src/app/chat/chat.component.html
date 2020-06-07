@@ -1,42 +1,15 @@
 
 <div *ngIf=" isvalid ; else chatroom ">
-    <!-- <div class="col-sm-5">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
-            <small id="userHelp" class="form-text text-muted">Type your username.</small> 
-        </div>
-    </div>
-    <div class="col-sm-5">
-        <label for="roomInput">Choose room</label>
-        <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
-            <option value="Lobby" selected>Lobby</option>
-            <option value="Hall">Confarance</option>
-            <option value="Deluxe">group</option>
-        </select>
-    </div>
-    <div class="col sm-2">
-        <div style="margin-top:19px;" class="pull-right"> 
-            <a routerLink="chat" type="button" class="btn x btn-primary" (click)="join()">Join</a>
-            <router-outlet></router-outlet>
-        </div>
-    </div> -->
     <div class="join-container">
         <header class="join-header">
-            <h1><i class="fas fa-smile"></i> ChatCord</h1>
+            <h1><i class="fas fa-smile"></i> MessageHUB</h1>
         </header>
         <main class="join-main">
             <form action="chat.html">
                 <div class="form-control">
                     <label for="username">Username</label>
                     <input
-                        type="text"
-                        name="username"
-                        id="username"
-                        [(ngModel)]="user"
-                        placeholder="Enter username..."
-                        required
-                    />
+                        type="text" name="username" id="username" [(ngModel)]="user" placeholder="Enter username..." required />
                 </div>
                 <div class="form-control">
                     <label for="room">Room</label>
@@ -51,43 +24,38 @@
         </main>
     </div>
 </div> 
-
 <ng-template #chatroom>
-<div class="chat-container">
-    <header class="chat-header">
-      <h1><i class="fas fa-smile"></i> ChatCord</h1>
-      <button  type="button" class="btn x btn-default" (click)="leave()">Leave Room</button>
-    </header>
-    <main class="chat-main">
-      <div class="chat-sidebar">
-        <h3><i class="fas fa-comments"></i> Room Name:</h3>
-        <h2 id="room-name">{{room}}</h2>
-        <h3><i class="fas fa-users"></i> Users</h3>
-        <ul id="users">
-          <li>{{user}}</li>
-          <li *ngFor="let item of messageArray">{{item.user}}</li>
-        </ul>
-      </div>
-      <div class="chat-messages">
-					<div class="message" *ngFor="let item of messageArray">
-						<p class="meta"> {{item.user}}<span>9:12pm</span></p>
-						<p class="text">
-                            {{item.message}}
-						</p>
-					</div>
-					<div class="message">
-						<p class="meta">{{user}} <span>9:15pm</span></p>
-						<p class="text">
-							Hellow welcome to the {{room}} chat room  
-						</p>
-					</div>
-      </div>
-    </main>
-    <div class="chat-form-container">
-      <div id="chat-form">
-        <input type="text" class="col-md-11" [(ngModel)]="messageText" value="messageText">  
-        <button type="button" class="btn y btn-success pull-right col-md-1" (click)="sendMessage()"> <i class="fas fa-paper-plane"></i> Send</button>
-      </div>
+    <div class="chat-container">
+        <header class="chat-header">
+        <h1><i class="fas fa-smile"></i>  MessageHUB</h1>
+        <button  type="button" class="btn x btn-default" (click)="leave()">Leave Room</button>
+        </header>
+        <main class="chat-main">
+            <div class="chat-sidebar">
+                <h3><i class="fas fa-comments"></i> Room Name:</h3>
+                <h2 id="room-name">{{room}}</h2>
+                <h3><i class="fas fa-users"></i> Users</h3>
+                <ul id="users">
+                    <li>{{user}}</li>
+                    <li *ngFor="let item of messageArray">{{item.user}}</li>
+                </ul>
+            </div>
+            <div class="chat-messages">
+                <div class="message" *ngFor="let item of messageArray">
+                    <p class="meta"> {{item.user}}<span>9:12pm</span></p>
+                    <p class="text">{{item.message}}</p>
+                </div>
+                <div class="message">
+                    <p class="meta">{{user}} <span>9:15pm</span></p>
+                    <p class="text">Hellow welcome to the {{room}} chat room </p>
+                </div>
+            </div>
+        </main>
+        <div class="chat-form-container">
+            <div id="chat-form">
+                <input type="text" class="col-md-11" [(ngModel)]="messageText" value="messageText">  
+                <button type="button" class="btn y btn-success pull-right col-md-1" (click)="sendMessage()"> <i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+        </div>
     </div>
-  </div>
 </ng-template>
